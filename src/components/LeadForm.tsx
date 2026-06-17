@@ -86,7 +86,7 @@ export default function LeadForm({ sourcePage = "General Inquiry" }: { sourcePag
               defaultCountry="US"
               value={phone}
               onChange={setPhone}
-              className="py-3 px-4 block w-full shadow-sm focus:ring-black focus:border-black border-gray-300 rounded-md bg-white border"
+              className="phone-input-wrapper"
             />
           </div>
         </div>
@@ -97,11 +97,43 @@ export default function LeadForm({ sourcePage = "General Inquiry" }: { sourcePag
             <select name="country" id="country" required className="py-3 px-4 block w-full shadow-sm focus:ring-black focus:border-black border-gray-300 rounded-md bg-white border">
               <option value="">Select a country</option>
               <option value="US">United States</option>
-              <option value="UK">United Kingdom</option>
               <option value="CA">Canada</option>
+              <option value="UK">United Kingdom</option>
               <option value="AU">Australia</option>
-              <option value="EU">European Union</option>
-              <option value="Other">Other</option>
+              <option value="NZ">New Zealand</option>
+              <optgroup label="Europe">
+                <option value="DE">Germany</option>
+                <option value="FR">France</option>
+                <option value="IT">Italy</option>
+                <option value="ES">Spain</option>
+                <option value="NL">Netherlands</option>
+                <option value="CH">Switzerland</option>
+                <option value="SE">Sweden</option>
+                <option value="NO">Norway</option>
+                <option value="DK">Denmark</option>
+                <option value="FI">Finland</option>
+                <option value="IE">Ireland</option>
+                <option value="AT">Austria</option>
+                <option value="BE">Belgium</option>
+              </optgroup>
+              <optgroup label="Americas">
+                <option value="MX">Mexico</option>
+                <option value="BR">Brazil</option>
+                <option value="AR">Argentina</option>
+                <option value="CL">Chile</option>
+              </optgroup>
+              <optgroup label="Asia Pacific & Middle East">
+                <option value="JP">Japan</option>
+                <option value="KR">South Korea</option>
+                <option value="SG">Singapore</option>
+                <option value="AE">United Arab Emirates</option>
+                <option value="SA">Saudi Arabia</option>
+                <option value="IL">Israel</option>
+              </optgroup>
+              <optgroup label="Other">
+                <option value="ZA">South Africa</option>
+                <option value="Other">Other Region</option>
+              </optgroup>
             </select>
           </div>
         </div>
