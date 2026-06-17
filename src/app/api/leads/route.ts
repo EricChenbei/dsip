@@ -21,38 +21,41 @@ export async function POST(request: Request) {
     }
 
     // Send Email using Resend
-    // Requires process.env.RESEND_API_KEY and process.env.NOTIFICATION_EMAIL to be set
     const resendApiKey = process.env.RESEND_API_KEY;
     const notificationEmail = process.env.NOTIFICATION_EMAIL;
 
-    if (resendApiKey && notificationEmail) {
-      const resend = new Resend(resendApiKey);
-      await resend.emails.send({
-        from: "Acme <onboarding@resend.dev>",
-        to: [notificationEmail],
-        subject: `New Lead: ${data.productInterest} from ${data.country}`,
-        html: `
-          <h2>New Research Inquiry</h2>
-          <p><strong>Name:</strong> ${data.fullName || "N/A"}</p>
-          <p><strong>Email:</strong> ${data.email}</p>
-          <p><strong>WhatsApp:</strong> ${data.whatsapp}</p>
-          <p><strong>Country:</strong> ${data.country}</p>
-          <p><strong>Interest:</strong> ${data.productInterest}</p>
-          <p><strong>Message:</strong> ${data.message || "N/A"}</p>
-          <p><strong>Source Page:</strong> ${data.sourcePage}</p>
-        `,
-      });
-    } else {
-      // If no API key is provided, just log it (helpful for local dev)
-      console.log("=== NEW RESEARCH INQUIRY (Logged, Email not configured) ===");
-      console.log(`Source Page: ${data.sourcePage}`);
-      console.log(`Name: ${data.fullName || "N/A"}`);
-      console.log(`Email: ${data.email}`);
-      console.log(`WhatsApp: ${data.whatsapp}`);
-      console.log(`Country: ${data.country}`);
-      console.log(`Product Interest: ${data.productInterest}`);
-      console.log(`Message: ${data.message || "N/A"}`);
-      console.log("============================");
+    // In production (Vercel), we MUST have the API key
+    if (!resendApiKey || !notificationEmail) {
+      console.error("Missing environment variables: RESEND_API_KEY or NOTIFICATION_EMAIL");
+      return NextResponse.json(
+        { error: "Server configuration error: Missing Email API Key. Please check Vercel Environment Variables." },
+        { status: 500 }
+      );
+    }
+
+    const resend = new Resend(resendApiKey);
+    const { data: resendData, error: resendError } = await resend.emails.send({
+      from: "DSIP Portal <onboarding@resend.dev>",
+      to: [notificationEmail],
+      subject: `New Lead: ${data.productInterest} from ${data.country}`,
+      html: `
+        <h2>New Research Inquiry</h2>
+        <p><strong>Name:</strong> ${data.fullName || "N/A"}</p>
+        <p><strong>Email:</strong> ${data.email}</p>
+        <p><strong>WhatsApp:</strong> ${data.whatsapp}</p>
+        <p><strong>Country:</strong> ${data.country}</p>
+        <p><strong>Interest:</strong> ${data.productInterest}</p>
+        <p><strong>Message:</strong> ${data.message || "N/A"}</p>
+        <p><strong>Source Page:</strong> ${data.sourcePage}</p>
+      `,
+    });
+
+    if (resendError) {
+      console.error("Resend API Error:", resendError);
+      return NextResponse.json(
+        { error: `Email sending failed: ${resendError.message}` },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json({ success: true, message: "Inquiry received" }, { status: 200 });
