@@ -1,0 +1,138 @@
+{
+  "global": {
+    "whatsappNumber": "85260931216",
+    "whatsappMessage": "Hello Research Team, I'm interested in DSIP research products and shipping details.",
+    "footerDisclaimer": "For laboratory research use only. Not for human or veterinary use. Not a drug, food, dietary supplement, or cosmetic.",
+    "navigation": [
+      { "label": "Research Peptides", "href": "/" },
+      { "label": "DSIP", "href": "/product/dsip" },
+      { "label": "Quality", "href": "/quality" },
+      { "label": "Black Friday", "href": "/black-friday" },
+      { "label": "FAQ", "href": "/faq" },
+      { "label": "Contact", "href": "/contact" }
+    ]
+  },
+  "home": {
+    "hero": {
+      "headline": "DSIP Research Peptide, documented for precision-led laboratory procurement.",
+      "subheadline": "A documentation-first research peptide experience designed for qualified laboratories and research buyers. Batch clarity, responsive support, and streamlined Black Friday inquiry support - research use only.",
+      "primaryCta": "Request Research Quote",
+      "secondaryCta": "View DSIP Research Specs",
+      "tertiaryCta": "WhatsApp Our Team",
+      "disclaimer": "For laboratory research use only. Not for human or veterinary use. No medical, diagnostic, therapeutic, weight-loss, or dietary-supplement claims are made."
+    },
+    "valueProps": [
+      {
+        "title": "Documentation-first lots",
+        "description": "Access lot-specific documentation, COA placeholders, and transparent product identifiers before procurement."
+      },
+      {
+        "title": "Built for research procurement",
+        "description": "A clean inquiry flow for qualified research buyers, with team support through email and WhatsApp."
+      },
+      {
+        "title": "Minimal, secure, responsive",
+        "description": "A premium Apple-inspired interface with fast loading, clear forms, and mobile-first contact flows."
+      },
+      {
+        "title": "Black Friday procurement support",
+        "description": "Submit bundle inquiries during the Black Friday window and receive product, shipping, and documentation guidance from the team."
+      }
+    ]
+  },
+  "product": {
+    "title": "DSIP Research Peptide",
+    "shortDescription": "DSIP, also known as Delta Sleep-Inducing Peptide or Emideltide, is a research peptide discussed in sleep-science and neuroendocrine research contexts. This product page is intended for laboratory research procurement only.",
+    "badges": [
+      "Research Use Only",
+      "COA Available Upon Request",
+      "Lot Tracking",
+      "Qualified Buyer Inquiry"
+    ],
+    "specs": {
+      "Name": "DSIP Research Peptide",
+      "Synonyms": "Delta Sleep-Inducing Peptide / Emideltide",
+      "CAS": "62568-57-4 - verify before publishing",
+      "Format": "Lyophilized research material - replace with actual product format",
+      "Quantity": "5 mg / 10 mg / 15 mg - publish only if true",
+      "Purity": "Display only after real third-party test or COA is available",
+      "Storage": "Follow supplier COA and product-specific storage documentation",
+      "Intended use": "In vitro / laboratory research use only",
+      "Restrictions": "Not for human or veterinary use. Not for consumption. Not for diagnostic, therapeutic, cosmetic, dietary, or weight-loss use."
+    },
+    "ctaBlock": {
+      "text": "Need COA, shipping details, or volume inquiry? Talk with our research support team before placing any order.",
+      "primaryBtn": "Request Research Quote",
+      "secondaryBtn": "Ask for COA on WhatsApp"
+    }
+  },
+  "quality": {
+    "headline": "Documentation should be visible before decisions are made.",
+    "body": "Research buyers need clarity. Build the product page around documentation placeholders that the owner must replace with actual lot-specific files before publishing: COA, HPLC report, MS report, batch ID, manufacturing date, expiry/retest date, storage requirements, and shipping constraints.",
+    "cards": [
+      {
+        "title": "Lot-specific documentation",
+        "description": "Every published lot should include product identity, batch ID, and available COA documentation."
+      },
+      {
+        "title": "Transparent inquiry process",
+        "description": "If a document is not ready, the site should show \"Request COA\" rather than making unverified purity claims."
+      },
+      {
+        "title": "Shipping guidance",
+        "description": "Display shipping zones, temperature handling requirements, and estimated dispatch windows only after verification."
+      }
+    ]
+  },
+  "blackFriday": {
+    "title": "Black Friday Research Procurement Window",
+    "headline": "Black Friday research procurement, with documentation at the center.",
+    "subheadline": "Submit DSIP and peptide research-material inquiries during the Black Friday window. Our team will help qualified buyers review available lots, documentation, shipping options, and volume requests.",
+    "offerStrip": "Black Friday inquiry support is available from [START DATE] to [END DATE]. Final pricing, product availability, and shipping eligibility are confirmed by the team after compliance review.",
+    "ctas": {
+      "primary": "Start Black Friday Inquiry",
+      "secondary": "Black Friday WhatsApp Support"
+    },
+    "featuresTitle": "What makes a better procurement experience?",
+    "features": [
+      "Clear product identifiers before purchase",
+      "COA-first communication when documentation is available",
+      "No exaggerated health or weight-loss promises",
+      "Responsive email and WhatsApp support",
+      "Mobile-first inquiry flow for international buyers"
+    ],
+    "complianceBanner": "Research use only. No medical, therapeutic, weight-loss, human-use, veterinary-use, cosmetic, or dietary-supplement claims are made."
+  },
+  "faq": [
+    {
+      "question": "Is DSIP sold for weight loss or human use?",
+      "answer": "No. DSIP on this website is positioned only as a laboratory research material. It is not sold or marketed for weight loss, human use, veterinary use, diagnosis, treatment, prevention, cosmetic use, or dietary supplementation."
+    },
+    {
+      "question": "Is DSIP FDA-approved?",
+      "answer": "This site does not claim DSIP is FDA-approved for human use. Products are offered only for laboratory research use by qualified buyers, subject to applicable laws and internal review."
+    },
+    {
+      "question": "Can I request a Certificate of Analysis?",
+      "answer": "Yes. Use the inquiry form or WhatsApp button to request available lot-specific documentation. Purity and identity information must be supported by real documentation before publication."
+    },
+    {
+      "question": "Do you provide dosing or protocol advice?",
+      "answer": "No. The team does not provide dosing, administration, medical, veterinary, fitness, or weight-loss advice."
+    },
+    {
+      "question": "Where do you ship?",
+      "answer": "Shipping availability depends on destination laws, carrier restrictions, product status, and internal compliance review. The team will confirm shipping options during inquiry."
+    },
+    {
+      "question": "Why do you ask for email and WhatsApp number?",
+      "answer": "We use your contact details to respond to your inquiry, share requested product documentation, and provide logistics updates. Marketing product updates require separate consent and can be opted out of at any time."
+    }
+  ],
+  "form": {
+    "microcopy": "We use your email and WhatsApp number to respond to your inquiry, share requested product documentation, and send logistics updates related to your request. Product updates are optional and require separate consent. You can opt out at any time.",
+    "submitBtn": "Send Research Inquiry",
+    "successMessage": "Thank you. Your inquiry has been received. Our team will review product documentation and shipping eligibility, then contact you by email or WhatsApp.",
+    "errorMessage": "Please check your email, WhatsApp number with country code, and required consent fields."
+  }
+}
