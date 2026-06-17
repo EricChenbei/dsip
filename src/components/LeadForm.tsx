@@ -44,8 +44,9 @@ export default function LeadForm({ sourcePage = "General Inquiry" }: { sourcePag
       if (response.ok) {
         setStatus("success");
       } else {
+        const errorData = await response.json();
         setStatus("error");
-        setErrorMessage("Something went wrong. Please try again later.");
+        setErrorMessage(errorData.error || "Something went wrong. Please try again later.");
       }
     } catch (err) {
       setStatus("error");
