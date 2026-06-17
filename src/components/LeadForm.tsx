@@ -3,13 +3,14 @@
 import { useState } from "react";
 import content from "@/data/content.json";
 import { Loader2 } from "lucide-react";
-import PhoneInput from "react-phone-number-input";
+import PhoneInput, { Country, getCountryCallingCode } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
 export default function LeadForm({ sourcePage = "General Inquiry" }: { sourcePage?: string }) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const [phone, setPhone] = useState<string>();
+  const [phoneCountry, setPhoneCountry] = useState<Country>("US");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -83,7 +84,13 @@ export default function LeadForm({ sourcePage = "General Inquiry" }: { sourcePag
           <div className="mt-1">
             <PhoneInput
               international
-              defaultCountry="US"
+              country={phoneCountry}
+              onCountryChange={(country) => {
+                if (country) {
+                  setPhoneCountry(country);
+                  setPhone(`+${getCountryCallingCode(country)}`);
+                }
+              }}
               value={phone}
               onChange={setPhone}
               className="phone-input-wrapper"
