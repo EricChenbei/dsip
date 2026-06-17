@@ -3,10 +3,13 @@
 import { useState } from "react";
 import content from "@/data/content.json";
 import { Loader2 } from "lucide-react";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 
 export default function LeadForm({ sourcePage = "General Inquiry" }: { sourcePage?: string }) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [phone, setPhone] = useState<string>();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -15,6 +18,13 @@ export default function LeadForm({ sourcePage = "General Inquiry" }: { sourcePag
 
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
+    data.whatsapp = phone || "";
+
+    if (!data.whatsapp) {
+      setStatus("error");
+      setErrorMessage("Please enter a valid WhatsApp number.");
+      return;
+    }
 
     // Basic client validation is handled by 'required' attributes, but we ensure checkboxes are checked
     if (!data.qualifiedBuyer || !data.logisticsConsent || !data.privacyAccepted) {
@@ -69,9 +79,15 @@ export default function LeadForm({ sourcePage = "General Inquiry" }: { sourcePag
         </div>
 
         <div>
-          <label htmlFor="whatsapp" className="block text-sm font-medium text-gray-700">WhatsApp Number (with country code) *</label>
+          <label htmlFor="whatsapp" className="block text-sm font-medium text-gray-700">WhatsApp Number *</label>
           <div className="mt-1">
-            <input type="tel" name="whatsapp" id="whatsapp" required placeholder="+1..." className="py-3 px-4 block w-full shadow-sm focus:ring-black focus:border-black border-gray-300 rounded-md bg-white border" />
+            <PhoneInput
+              international
+              defaultCountry="US"
+              value={phone}
+              onChange={setPhone}
+              className="py-3 px-4 block w-full shadow-sm focus:ring-black focus:border-black border-gray-300 rounded-md bg-white border"
+            />
           </div>
         </div>
 

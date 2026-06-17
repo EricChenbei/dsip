@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
 
 export async function POST(request: Request) {
   try {
@@ -19,22 +20,40 @@ export async function POST(request: Request) {
       );
     }
 
-    // In a production environment, you would use an email service provider here.
-    // e.g., Resend, SendGrid, Postmark.
-    // const resend = new Resend(process.env.RESEND_API_KEY);
-    // await resend.emails.send({ ... });
+    // Send Email using Resend
+    // Requires process.env.RESEND_API_KEY and process.env.NOTIFICATION_EMAIL to be set
+    const resendApiKey = process.env.RESEND_API_KEY;
+    const notificationEmail = process.env.NOTIFICATION_EMAIL;
 
-    // For now, we will simply log the lead to the console to simulate successful processing.
-    console.log("=== NEW RESEARCH INQUIRY ===");
-    console.log(`Source Page: ${data.sourcePage}`);
-    console.log(`Name: ${data.fullName || "N/A"}`);
-    console.log(`Email: ${data.email}`);
-    console.log(`WhatsApp: ${data.whatsapp}`);
-    console.log(`Country: ${data.country}`);
-    console.log(`Product Interest: ${data.productInterest}`);
-    console.log(`Message: ${data.message || "N/A"}`);
-    console.log(`Consents - Qualified Buyer: ${data.qualifiedBuyer ? "Yes" : "No"}, Logistics: ${data.logisticsConsent ? "Yes" : "No"}, Privacy: ${data.privacyAccepted ? "Yes" : "No"}, Marketing: ${data.marketingConsent ? "Yes" : "No"}`);
-    console.log("============================");
+    if (resendApiKey && notificationEmail) {
+      const resend = new Resend(resendApiKey);
+      await resend.emails.send({
+        from: "Acme <onboarding@resend.dev>",
+        to: [notificationEmail],
+        subject: `New Lead: ${data.productInterest} from ${data.country}`,
+        html: `
+          <h2>New Research Inquiry</h2>
+          <p><strong>Name:</strong> ${data.fullName || "N/A"}</p>
+          <p><strong>Email:</strong> ${data.email}</p>
+          <p><strong>WhatsApp:</strong> ${data.whatsapp}</p>
+          <p><strong>Country:</strong> ${data.country}</p>
+          <p><strong>Interest:</strong> ${data.productInterest}</p>
+          <p><strong>Message:</strong> ${data.message || "N/A"}</p>
+          <p><strong>Source Page:</strong> ${data.sourcePage}</p>
+        `,
+      });
+    } else {
+      // If no API key is provided, just log it (helpful for local dev)
+      console.log("=== NEW RESEARCH INQUIRY (Logged, Email not configured) ===");
+      console.log(`Source Page: ${data.sourcePage}`);
+      console.log(`Name: ${data.fullName || "N/A"}`);
+      console.log(`Email: ${data.email}`);
+      console.log(`WhatsApp: ${data.whatsapp}`);
+      console.log(`Country: ${data.country}`);
+      console.log(`Product Interest: ${data.productInterest}`);
+      console.log(`Message: ${data.message || "N/A"}`);
+      console.log("============================");
+    }
 
     return NextResponse.json({ success: true, message: "Inquiry received" }, { status: 200 });
   } catch (error) {
