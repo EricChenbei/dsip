@@ -134,5 +134,46 @@
     "submitBtn": "Send Research Inquiry",
     "successMessage": "Thank you. Your inquiry has been received. Our team will review product documentation and shipping eligibility, then contact you by email or WhatsApp.",
     "errorMessage": "Please check your email, WhatsApp number with country code, and required consent fields."
+  },
+  "shop": {
+    "shipping": {
+      "freeThreshold": 79,
+      "flatRate": 8.90
+    },
+    "cryptoWallet": "0x17e7025db3387296b276617a1e2487f6c75daf14",
+    "products": [
+      {
+        "id": "dsip-10mg",
+        "name": "DSIP 10mg Research Vial",
+        "regularPrice": 79.90,
+        "salePrice": 59.90,
+        "isPopular": false,
+        "description": "Single vial. Free tracked shipping not included unless combined."
+      },
+      {
+        "id": "dsip-10mg-2pack",
+        "name": "2 × DSIP 10mg Research Vials",
+        "regularPrice": 139.90,
+        "salePrice": 109.90,
+        "isPopular": true,
+        "description": "Best Value. Free tracked shipping included. Recommended for repeat laboratory ordering."
+      },
+      {
+        "id": "dsip-10mg-3pack",
+        "name": "3 × DSIP 10mg Research Vials",
+        "regularPrice": 189.90,
+        "salePrice": 149.90,
+        "isPopular": false,
+        "description": "Free tracked shipping included."
+      },
+      {
+        "id": "dsip-5mg",
+        "name": "DSIP 5mg Research Vial",
+        "regularPrice": 49.90,
+        "salePrice": 39.90,
+        "isPopular": false,
+        "description": "Single 5mg vial. Free tracked shipping not included."
+      }
+    ]
   }
 }
